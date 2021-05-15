@@ -34,9 +34,17 @@ function setLocalStorage(e) {
     }
 }
 
-const initialTheme = localStorage.getItem('theme');
+  function themeSwitcher() {
+    const initialTheme = localStorage.getItem('theme');
+  
+    if (initialTheme === Theme.DARK) {
+      refs.body.classList.remove(Theme.LIGHT);
+      refs.body.classList.add(Theme.DARK);
+      refs.switch.checked = true;
+    } else {
+      refs.body.classList.remove(Theme.DARK);
+      refs.body.classList.add(Theme.LIGHT);
+    }
+  }
 
-if (initialTheme === Theme.DARK) {
-    refs.body.classList.add(Theme.DARK);
-    refs.switch.checked = true;
-}
+  themeSwitcher();
